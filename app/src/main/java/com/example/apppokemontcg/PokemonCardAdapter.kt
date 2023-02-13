@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.apppokemontcg.PokemonCard
 import com.example.apppokemontcg.R
+import org.w3c.dom.Text
 
 
 class PokemonCardAdapter(private var cards: List<PokemonCard>) : RecyclerView.Adapter<PokemonCardAdapter.ViewHolder>() {
@@ -18,12 +19,13 @@ class PokemonCardAdapter(private var cards: List<PokemonCard>) : RecyclerView.Ad
                 println("item pulsado")
 
             }
-            itemView.findViewById<TextView>(R.id.tvRareza).text = card.rarity
-            itemView.findViewById<TextView>(R.id.tvHp).text = card.hp
-            itemView.findViewById<TextView>(R.id.tvTitle).text = card.name
+
+            itemView.findViewById<TextView>(R.id.tvDescripcion).text = card.description
+            itemView.findViewById<TextView>(R.id.tvTitle).text = card.title
             Glide.with(itemView.context)
-                .load(card.imageUrl)
+                .load(card.urlToImage)
                 .into(itemView.findViewById<ImageView>(R.id.ivMain))
+
         }
 
 
